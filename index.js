@@ -12,11 +12,15 @@ const app = express();
 
 
 
-app.use(cors({
-  origin: "*",
-  methods: ["GET","POST","PUT","DELETE"],
-}));
+const allowedOrigins = [
+  "http://localhost:5174",
+  "https://azmat-software.vercel.app"
+];
 
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 
 app.use(express.json());
 
