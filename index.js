@@ -8,7 +8,16 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+
+import cors from "cors";
+
+app.use(cors({
+  origin: "*",
+  methods: ["GET","POST","PUT","DELETE"],
+}));
+
+
 app.use(express.json());
 
 // mongoose.connect('mongodb://127.0.0.1:27017/restaurant1')
